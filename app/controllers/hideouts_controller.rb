@@ -15,7 +15,7 @@ class HideoutsController < ApplicationController
   def create
     @hideout = Hideout.new(hideout_params)
     @hideout.save
-    @redirect_to hideout_path(@hideout)
+    redirect_to hideout_path(@hideout)
   end
 
   def edit
@@ -23,12 +23,12 @@ class HideoutsController < ApplicationController
 
   def update
     @hideout.update(hideout_params)
-    @redirect_to hideout_path(@hideout)
+    redirect_to hideout_path(@hideout)
   end
 
   def destroy
     @hideout.destroy
-    @redirect_to hideout_path
+    redirect_to hideout_path
   end
 
   private
@@ -37,5 +37,3 @@ class HideoutsController < ApplicationController
     @hideout = Hideout.find(params[:id])
   end
 end
-
-
