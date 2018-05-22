@@ -54,6 +54,6 @@ class HideoutsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through
   def hideout_params
-    params.require(:hideout).permit(:name, :description, :address, :price, :capacity, :safety)
+    params.require(:hideout).permit(:name, :description, :address, :price, :capacity, :safety, :photo)
   end
 end
