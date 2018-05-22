@@ -1,39 +1,58 @@
 class HideoutsController < ApplicationController
   before_action :set_hideout, only: [:show, :edit, :update, :destroy]
 
+  # GET /hideouts
   def index
     @hideouts = Hideout.all
   end
 
+  # GET /hideouts/1
   def show
   end
 
+  # GET /hideouts/new
   def new
     @hideout = Hideout.new
   end
 
-  def create
-    @hideout = Hideout.new(hideout_params)
-    @hideout.save
-    redirect_to hideout_path(@hideout)
-  end
-
+  # GET /hideouts/1/edit
   def edit
   end
 
-  def update
-    @hideout.update(hideout_params)
-    redirect_to hideout_path(@hideout)
+  # POST /hideouts
+  def create
+    @hideout = Hideout.new(hideout_params)
+    if @hideout.save
+      redirect_to @hideout, notice: 'Hideout was successfully created.'
+    else
+      render :new
+    end
   end
 
+  # PATCH/PUT /hideouts/1
+  def update
+    if @hideout.update(hideout_params)
+      redirect_to @hideout, notice: 'Hideout was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  # DELETE /hideouts/1
   def destroy
     @hideout.destroy
-    redirect_to hideout_path
+    redirect_to hideout_path, notice: 'Hideout was successfully destroyed.'
   end
 
   private
 
+  # Use callbacks to share common setup or constraints between actions
   def set_hideout
     @hideout = Hideout.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through
+  def hideouts_params
+    params.require(:hideout).permit(:name, :description, :address, :price, :capacity, :safety)
   end
 end

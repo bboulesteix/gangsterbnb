@@ -1,6 +1,9 @@
 <div class="container">
-  <h1>My HIDEOUTS</h1>
+  <h1>My Hideout</h1>
   <% @hideouts.each do |hideout|  %>
-    <p><%= hideout.name %></p>
+    <%= link_to hideout.name, hideout_path(hideout) %>
+    <p><%= hideout.description %></p>
   <% end %>
 </div>
+
+
