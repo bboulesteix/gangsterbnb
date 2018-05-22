@@ -5,27 +5,19 @@
     <p><%= @hideout.description %></p>
   </section>
   <section>
-    <ul>
+    <ul class="list-unstyled">
       <li><%= @hideout.address %></li>
       <li><%= @hideout.price %></li>
       <li><%= @hideout.capacity %></li>
       <li><%= @hideout.safety %></li>
     </ul>
   </section>
-  <%= link_to "Home", hideouts_path %>
 </article>
 
 <div class = container>
   <%= link_to "Home", hideouts_path, class: "btn btn-primary" %>
   <%= link_to "Edit", edit_hideout_path, class: "btn btn-primary" %>
-
-  <!-- ___________________________________user-can-book-a-flat START -->
-  <%= simple_form_for [@hideout, @booking] do |f| %>
-    <%= f.input :checkin %>
-    <%= f.input :checkout %>
-    <%= f.button :submit %>
-  <% end %>
-  <!-- ___________________________________user-can-book-a-flat END -->
-
-  <%= link_to "Home", hideouts_path %>
+  <hr>
+  <h2> Book it now </h2>
+  <%= render 'form_booking', hideout: @hideout, booking: @booking %>
 <div class = container>
