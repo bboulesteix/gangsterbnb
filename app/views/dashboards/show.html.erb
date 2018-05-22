@@ -1,0 +1,14 @@
+<h1> <%= @name %> - Dashboard </h1>
+
+<h2> Bookings </h2>
+<% @bookings.each do |booking| %>
+  <%= booking %>
+<%= end %>
+
+<hr>
+
+<h2> Hideouts </h2>
+<% @hideouts.each do |hideout| %>
+  <%= hideout %>
+<%= end %>
+
