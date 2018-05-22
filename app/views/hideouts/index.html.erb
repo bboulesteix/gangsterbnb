@@ -1,9 +1,7 @@
-<div class="container">
+<article class="container">
   <h1>My Hideout</h1>
   <% @hideouts.each do |hideout|  %>
     <%= link_to hideout.name, hideout_path(hideout) %>
     <p><%= hideout.description %></p>
   <% end %>
-</div>
-
-
+</artilce>

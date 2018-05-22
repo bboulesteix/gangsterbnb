@@ -1,16 +1,15 @@
-<div class = "container">
-  <div>
-    <%= @hideout.name %>
-  </div>
-  <div>
-    <%= @hideout.description %>
-  </div>
-  <div>
-    <%= @hideout.address %>
-    <%= @hideout.price %>
-    <%= @hideout.capacity %>
-    <%= @hideout.safety %>
-  </div>
-</div>
-
-<%= link_to "Home", hideouts_path %>
+<article class = "container">
+  <section>
+    <h1><%= @hideout.name %></h1>
+    <p><%= @hideout.description %></p>
+  </section>
+  <section>
+    <ul>
+      <li><%= @hideout.address %></li>
+      <li><%= @hideout.price %></li>
+      <li><%= @hideout.capacity %></li>
+      <li><%= @hideout.safety %></li>
+    </ul>
+  </section>
+  <%= link_to "Home", hideouts_path %>
+</article>
