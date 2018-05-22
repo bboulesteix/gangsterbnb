@@ -31,7 +31,10 @@
     <%= f.text_field :safety, class: 'form-control' %>
   </div>
 
-  <%= f.submit class: 'btn btn-primary' %>
+  <div>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+  </div>
 
-  redirect_to hideout_path(@hideout)
+  <%= f.submit class: 'btn btn-primary' %>
 <% end %>

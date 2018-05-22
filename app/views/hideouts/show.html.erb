@@ -13,4 +13,9 @@
   </div>
 </div>
 
+<div>
+  <%= cl_image_tag @article.photo, height: 300, width: 400, crop: :fill %>
+</div>
+
+
 <%= link_to "Home", hideouts_path %>

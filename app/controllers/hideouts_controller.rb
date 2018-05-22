@@ -21,6 +21,7 @@ class HideoutsController < ApplicationController
 
   # POST /hideouts
   def create
+    raise
     @hideout = Hideout.new(hideout_params)
     @hideout.user = current_user # need a user to save the hideouts.
     if @hideout.save
