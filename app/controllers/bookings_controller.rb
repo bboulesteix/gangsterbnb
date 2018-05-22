@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     @hideout = Hideout.find(params[:hideout_id])
     @booking.hideout = @hideout
     if @booking.save
-      redirect_to hideout_path(@hideout) notice: 'Booking was successfully created.'
+      redirect_to hideout_path(@hideout), notice: 'Booking was successfully created.'
     else
       render 'hideouts/show'
     end

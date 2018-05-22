@@ -22,8 +22,9 @@ class HideoutsController < ApplicationController
   # POST /hideouts
   def create
     @hideout = Hideout.new(hideout_params)
+    @hideout.user = current_user # need a user to save the hideouts.
     if @hideout.save
-      redirect_to @hideout, notice: 'Hideout was successfully created.'
+      redirect_to hideout_path(@hideout), notice: 'Hideout was successfully created.'
     else
       render :new
     end
@@ -32,7 +33,7 @@ class HideoutsController < ApplicationController
   # PATCH/PUT /hideouts/1
   def update
     if @hideout.update(hideout_params)
-      redirect_to @hideout, notice: 'Hideout was successfully updated.'
+      redirect_to hideout_path(@hideout), notice: 'Hideout was successfully updated.'
     else
       render :edit
     end
@@ -52,7 +53,7 @@ class HideoutsController < ApplicationController
   end
 
   # Only allow a trusted parameter "white list" through
-  def hideouts_params
+  def hideout_params
     params.require(:hideout).permit(:name, :description, :address, :price, :capacity, :safety)
   end
 end
