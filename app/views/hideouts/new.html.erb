@@ -1,36 +1,11 @@
 <h1>new hideouts</h1>
-<%= form_for(@hideout) do |f| %>
-  <!-- form name by LDE-->
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
 
-<!-- form description by LDE-->
-  <div class="form-group">
-    <%= f.label :description %>
-    <%= f.text_field :description, class: 'form-control' %>
-  </div>
-<!-- form address by LDE-->
-  <div class="form-group">
-    <%= f.label :address %>
-    <%= f.text_field :address, class: 'form-control' %>
-  </div>
-<!-- form price by LDE-->
-  <div class="form-group">
-    <%= f.label :price %>
-    <%= f.text_field :price, class: 'form-control' %>
-  </div>
-<!-- form capacity by LDE-->
-  <div class="form-group">
-    <%= f.label :capacity %>
-    <%= f.text_field :capacity, class: 'form-control' %>
-  </div>
-<!-- form safety by LDE-->
-  <div class="form-group">
-    <%= f.label :safety %>
-    <%= f.text_field :safety, class: 'form-control' %>
-  </div>
-
-  <%= f.submit class: 'btn btn-primary' %>
+<%= simple_form_for @hideout do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :address %>
+  <%= f.input :price %>
+  <%= f.input :capacity %>
+  <%= f.input :safety %>
+  <%= f.button :submit %>
 <% end %>

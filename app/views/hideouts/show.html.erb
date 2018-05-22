@@ -13,4 +13,13 @@
   </div>
 </div>
 
+<!-- ___________________________________user-can-book-a-flat START -->
+<%= simple_form_for [@hideout, @booking] do |f| %>
+  <%= f.input :checkin %>
+  <%= f.input :checkout %>
+  <%= f.button :submit %>
+<% end %>
+<!-- ___________________________________user-can-book-a-flat END -->
+
 <%= link_to "Home", hideouts_path %>
+
