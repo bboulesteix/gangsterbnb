@@ -1,4 +1,3 @@
-<h1>new hideouts</h1>
 <%= form_for(@hideout) do |f| %>
   <!-- form name by LDE-->
   <div class="form-group">
@@ -33,4 +32,6 @@
   </div>
 
   <%= f.submit class: 'btn btn-primary' %>
+
+  redirect_to hideout_path(@hideout)
 <% end %>
