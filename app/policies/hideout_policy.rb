@@ -5,7 +5,7 @@ class HideoutPolicy < ApplicationPolicy
     end
   end
 
-  def new?
+  def create?
     true
   end
 
@@ -14,7 +14,7 @@ class HideoutPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    record.user == user
   end
 
 end

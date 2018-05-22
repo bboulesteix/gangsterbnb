@@ -8,7 +8,6 @@ class HideoutsController < ApplicationController
 
   # GET /hideouts/1
   def show
-    authorize @hideout
   end
 
   # GET /hideouts/new
@@ -19,13 +18,13 @@ class HideoutsController < ApplicationController
 
   # GET /hideouts/1/edit
   def edit
-    authorize @hideout
   end
 
   # POST /hideouts
   def create
     @hideout = Hideout.new(hideout_params)
     @hideout.user = current_user # need a user to save the hideouts.
+    authorize @hideout
     if @hideout.save
       redirect_to hideout_path(@hideout), notice: 'Hideout was successfully created.'
     else
@@ -54,6 +53,7 @@ class HideoutsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions
   def set_hideout
     @hideout = Hideout.find(params[:id])
+    authorize @hideout
   end
 
   # Only allow a trusted parameter "white list" through
