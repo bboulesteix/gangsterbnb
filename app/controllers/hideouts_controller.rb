@@ -21,7 +21,6 @@ class HideoutsController < ApplicationController
 
   # POST /hideouts
   def create
-    raise
     @hideout = Hideout.new(hideout_params)
     @hideout.user = current_user # need a user to save the hideouts.
     if @hideout.save
@@ -55,6 +54,6 @@ class HideoutsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through
   def hideout_params
-    params.require(:hideout).permit(:name, :description, :address, :price, :capacity, :safety)
+    params.require(:hideout).permit(:name, :description, :address, :price, :capacity, :safety, :photo)
   end
 end
