@@ -9,8 +9,8 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My Hideout", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My Booking", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
@@ -47,9 +47,13 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <li><a href="#">My Hideout</a></li>
+        <li><a href="#">My booking</a></li>
+        <li><a href="#">Messages</a></li>
+        <hr>
+        <li><a href="#">Profil</a></li>
+        <li><a href="#">Setting</a></li>
+        <li><a href="#">Log out</a></li>
       </ul>
     </div>
   </div>
