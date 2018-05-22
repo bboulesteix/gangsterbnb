@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
     # we need `hideout_id` to asssociate booking with corresponding hideout
     @hideout = Hideout.find(params[:hideout_id])
     @booking.hideout = @hideout
+    @booking.user = current_user
     if @booking.save
       redirect_to hideout_path(@hideout), notice: 'Booking was successfully created.'
     else

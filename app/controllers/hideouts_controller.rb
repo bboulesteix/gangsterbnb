@@ -8,6 +8,8 @@ class HideoutsController < ApplicationController
 
   # GET /hideouts/1
   def show
+    @booking = Booking.new
+    authorize @hideout
   end
 
   # GET /hideouts/new
