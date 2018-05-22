@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Bookings#create</h1>
+  <%= simple_form_for [@hideout, @user, @booking] do |f| %>
+    <%= f.input :checkin %>
+    <%= f.input :checkout %>
+    <%= f.submit "Book this hideout", class: "btn btn-primary" %>
+  <% end %>
+</div>
