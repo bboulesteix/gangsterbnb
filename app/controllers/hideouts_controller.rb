@@ -3,21 +3,24 @@ class HideoutsController < ApplicationController
 
   # GET /hideouts
   def index
-    @hideouts = Hideout.all
+    @hideouts = policy_scope(Hideout)
   end
 
   # GET /hideouts/1
   def show
     @booking = Booking.new
+    authorize @hideout
   end
 
   # GET /hideouts/new
   def new
     @hideout = Hideout.new
+    authorize @hideout
   end
 
   # GET /hideouts/1/edit
   def edit
+    authorize @hideout
   end
 
   # POST /hideouts
@@ -33,6 +36,7 @@ class HideoutsController < ApplicationController
 
   # PATCH/PUT /hideouts/1
   def update
+    authorize @hideout
     if @hideout.update(hideout_params)
       redirect_to hideout_path(@hideout), notice: 'Hideout was successfully updated.'
     else
@@ -55,6 +59,6 @@ class HideoutsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through
   def hideout_params
-    params.require(:hideout).permit(:name, :description, :address, :price, :capacity, :safety)
+    params.require(:hideout).permit(:name, :description, :address, :price, :capacity, :safety, :photo)
   end
 end

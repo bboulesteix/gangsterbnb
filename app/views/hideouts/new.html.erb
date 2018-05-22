@@ -1,11 +1,5 @@
-<h1>new hideouts</h1>
-
-<%= simple_form_for @hideout do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :address %>
-  <%= f.input :price %>
-  <%= f.input :capacity %>
-  <%= f.input :safety %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+  <h1>New Hideout</h1>
+  <hr>
+  <%= render 'form', hideout: @hideout %>
+</div>

@@ -11,6 +11,14 @@
     <%= @hideout.capacity %>
     <%= @hideout.safety %>
   </div>
+  
+  <div>
+  <%= cl_image_tag @hideout.photo, height: 300, width: 400, crop: :fill %>
+  </div>
+
+  <%= link_to "Home", hideouts_path, class: "btn btn-primary" %>
+  <%= link_to "Edit", edit_hideout_path, class: "btn btn-primary" %>
+  
 </div>
 
 <!-- ___________________________________user-can-book-a-flat START -->
@@ -22,4 +30,3 @@
 <!-- ___________________________________user-can-book-a-flat END -->
 
 <%= link_to "Home", hideouts_path %>
-
