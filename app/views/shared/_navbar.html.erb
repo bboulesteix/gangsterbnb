@@ -1,6 +1,6 @@
 <header class="navbar-wagon">
     <%= link_to root_path, class: "navbar-wagon-brand" do %>
-      <%= image_tag "logo.svg", width: 200 %>
+      <%= image_tag "logo-white.svg", width: 200 %>
     <% end %>
 
     <!-- Right Navigation -->
@@ -9,7 +9,7 @@
       <% if user_signed_in? %>
 
         <!-- Links when logged in -->
-        <%= link_to "My Dashboard", dashboards_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "My Dashboard", dashboards_path, class: "navbar-wagon-item navbar-wagon-link text-uppercase" %>
 
         <!-- Avatar with dropdown menu -->
         <div class="navbar-wagon-item">
@@ -58,4 +58,3 @@
       </div>
     </div>
 </header>
-
