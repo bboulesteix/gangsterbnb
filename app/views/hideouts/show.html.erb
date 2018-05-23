@@ -19,9 +19,9 @@
 </article>
 
 <div class = container>
-  <%#= link_to "Home", hideouts_path, class: "btn btn-primary" %>
+  <%= link_to "Home", hideouts_path, class: "btn btn-default text-uppercase" %>
     <% if policy(@hideout).update? %>
-      <%= link_to "Edit", edit_hideout_path, class: "btn btn-primary" %>
+      <%= link_to "Edit", edit_hideout_path, class: "btn btn-default text-uppercase" %>
       <% end %>
   <hr>
   <h2> Book it now </h2>
