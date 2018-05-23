@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Hideout)
   end
 
   # POST /bookings
@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
     @hideout = Hideout.find(params[:hideout_id])
     @booking.hideout = @hideout
     @booking.user = current_user
+    authorize @booking
     if @booking.save
       redirect_to hideout_path(@hideout), notice: 'Booking was successfully created.'
     else
