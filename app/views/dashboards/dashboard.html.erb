@@ -1,24 +1,15 @@
 <div class="container">
   <div class= "dashboard-title">
     <div class= "dashboard-title-element">
-      <h1 class= "blue">
-        My Dashboard
-      </h1>
+      <h2>Mes bookings</h2>
     </div>
     <div class= "dashboard-title-element email">
-        | <%= @email %>
+      <%= link_to "Book une planque", hideouts_path, type: "button", class: "btn btn-primary" %>
     </div>
   </div>
 <div>
 
 <hr>
-
-<div class="container">
-  <h2>Mes bookings</h2>
-  <div>
-  <%= link_to "Book a hideout", hideouts_path, type: "button", class: "btn btn-primary" %>
-  </div>
-  <hr>
 
 <!-- Header for my booking -->
   <div class="message">
@@ -76,10 +67,15 @@
   <br>
   <br>
 
-  <h2>Mes planques</h2>
-  <div>
-    <%= link_to "Add a new hideout", new_hideout_path, type: "button", class: "btn btn-primary" %>
+  <div class= "dashboard-title">
+    <div class= "dashboard-title-element">
+      <h2>Mes planques</h2>
+    </div>
+    <div class= "dashboard-title-element email">
+      <%= link_to "Ajoute une planque", new_hideout_path, type: "button", class: "btn btn-primary" %>
+    </div>
   </div>
+
 <hr>
 
 <!-- Header for my hideouts -->
