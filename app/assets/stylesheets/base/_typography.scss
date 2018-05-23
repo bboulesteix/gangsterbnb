@@ -1,8 +1,46 @@
 @import "../config/fonts";
+@import "../config/colors";
+@import "../config/bootstrap_variables";
+
+h1,
+h2,
+h3,
+.text-uppercase {
+  font-family: $headers-font;
+  text-transform: uppercase;
+}
 
 .navbar-wagon a {
-  font-family: $headers-font;
   font-size: 12px;
+  letter-spacing: .45px;
+  color: #ffffff;
+  &:hover {
+    color: $red;
+  }
+}
+
+label {
+  font-family: $headers-font;
   text-transform: uppercase;
-  letter-spacing: .40px;
+  font-size: 14px;
+  letter-spacing: .45px;
+}
+
+a {
+  color: #2D9ACC;
+  &:hover {
+    color: $red;
+  }
+}
+
+.btn {
+  font-size: 14px !important;
+}
+
+.btn-default {
+  font-family: $headers-font;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: .45px;
+  color: $black;
 }
