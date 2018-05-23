@@ -7,10 +7,10 @@
 <div class = "container">
   <div class = "form-wrapper" style = "width: 500px; margin: 0 auto;">
     <h1>Book this Hideout</h1>
-    <%= simple_form_for :search, method: :get do |t| %>
-      <%= t.input :starts_at, as: :string, input_html: { class: "datepicker"} %>
-      <%= t.input :end_at, as: :string, input_html: { class: "datepicker"} %>
-      <%= t.submit "Book It!", class: "btn btn-primary" %>
+      <%= simple_form_for [@hideout, @user, @booking] do |f| %>
+      <%= f.input :checkin, input_html: { class: "datepicker"} %>
+      <%= f.input :checkout, input_html: { class: "datepicker"} %>
+      <%= f.submit "Book this hideout", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
