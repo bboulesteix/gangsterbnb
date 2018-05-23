@@ -6,6 +6,4 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:index]
   root to: 'hideouts#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  # get '/dashboard'
 end
