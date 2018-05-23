@@ -4,6 +4,16 @@ class HideoutsController < ApplicationController
   # GET /hideouts
   def index
     @hideouts = policy_scope(Hideout)
+    # Display a map on the flats#index route
+    @hideouts = Hideout.where.not(latitude: nil, longitude: nil)
+
+    @markers = @hideouts.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/hideouts/map_box", locals: { flat: flat }) }
+      }
+    end
   end
 
   # GET /hideouts/1
