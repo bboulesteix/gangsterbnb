@@ -1,9 +1,37 @@
 <article class="container">
   <h1>My Hideout</h1>
   <div id="map" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>"></div>
-  <% @hideouts.each do |hideout|  %>
-    <%= link_to hideout.name, hideout_path(hideout) %>
-    <p><%= hideout.description %></p>
-  <% end %>
-  <div><%= link_to "Add a new hideout", new_hideout_path, type: "button", class: "btn btn-primary" %></div>
-</artilce>
+  <div class="row">
+    <% @hideouts.each do |hideout|  %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <% if hideout.photo.blank? %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "banner.jpg", height: 300, width: 400, crop: :fill %>')">
+            <div class="card-description">
+            <%= link_to hideout.name, hideout_path(hideout)%>
+          </div>
+            <p><%= hideout.price %></p>
+          </div>
+        <% else %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path hideout.photo, height: 300, width: 400, crop: :fill %>')">
+            <div class="card-description">
+            <%= link_to hideout.name, hideout_path(hideout)%>
+            </div>
+            <p><%= hideout.price %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</article>
+
+
+<!-- <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+  <div class="card-category">Popular</div>
+  <div class="card-description">
+    <h2>Le Wagon Shanghai</h2>
+    <p>Very cool city, the best</p>
+  </div>
+  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+  <a class="card-link" href="#" ></a>
+</div> -->
+
