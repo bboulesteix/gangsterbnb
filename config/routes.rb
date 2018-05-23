@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:index]
   root to: 'hideouts#index'
+
+  get 'dashboards', to: 'dashboards#dashboard'
 end
