@@ -1,23 +1,25 @@
 <article class = "container">
-  <section>
+
     <h1><%= @hideout.name %></h1>
     <p><%= @hideout.description %></p>
-    <div class= hideout-photo>
-    <%= cl_image_tag @hideout.photo, height: 300, width: 400, crop: :fill %>
+    <div class="hideout-info">
+      <div class="hideout-photo">
+      <%= cl_image_tag @hideout.photo, height: 300, width: 400, crop: :fill %>
+      </div>
+      <div class="hideout-description">
+        <ul class="list-unstyled">
+          <li>hidden Address: <%= @hideout.address %></li>
+          <li>price in US dollars: <%= @hideout.price %></li>
+          <li>capacity of gangters: <%= @hideout.capacity %></li>
+          <li>level of security: <%= @hideout.safety %></li>
+        </ul>
+      </div>
     </div>
-  </section>
-  <section>
-    <ul class="list-unstyled">
-      <li>hidden Address: <%= @hideout.address %></li>
-      <li>price in US dollars: <%= @hideout.price %></li>
-      <li>capacity of gangters: <%= @hideout.capacity %></li>
-      <li>level of security: <%= @hideout.safety %></li>
-    </ul>
-  </section>
+
 </article>
 
 <div class = container>
-  <%= link_to "Home", hideouts_path, class: "btn btn-primary" %>
+  <%#= link_to "Home", hideouts_path, class: "btn btn-primary" %>
     <% if policy(@hideout).update? %>
       <%= link_to "Edit", edit_hideout_path, class: "btn btn-primary" %>
       <% end %>
