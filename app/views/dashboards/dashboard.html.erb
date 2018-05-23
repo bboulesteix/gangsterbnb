@@ -1,0 +1,50 @@
+<div class="container">
+  <h1> My Dashboard </h1>
+  <%= @email %>
+  <hr>
+
+  <h2> Bookings </h2>
+  <% @bookings.each do |booking| %>
+    <div class="message">
+      <div class="message-name">
+        <h3>Gab Dehan</h3>
+        <p>10/07/17</p>
+      </div>
+      <div class="message-body">
+        <p><strong>
+          <%= booking.checkin %>
+        </strong></p>
+        <p>
+          <%= booking.checkin %>
+        </p>
+      </div>
+      <div class="message-status">
+        <p class="price">
+          <%= booking.checkout %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+
+  <h2> Hideouts </h2>
+  <% @hideouts.each do |hideout| %>
+    <div class="message">
+      <div class="message-name">
+        <h3>Gab Dehan</h3>
+        <p>10/07/17</p>
+      </div>
+      <div class="message-body">
+        <p><strong>
+          <%= hideout.name %>
+        </strong></p>
+        <p>
+          <%= hideout.description %>
+        </p>
+      </div>
+      <div class="message-status">
+        <p class="price">
+          <%= hideout.safety %>
+        </p>
+      </div>
+    </div>
+  <% end %>
