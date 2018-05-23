@@ -21,4 +21,8 @@ class HideoutPolicy < ApplicationPolicy
     true
   end
 
+  def home?
+    true
+  end
+
 end
