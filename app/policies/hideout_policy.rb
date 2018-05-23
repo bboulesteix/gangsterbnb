@@ -17,4 +17,12 @@ class HideoutPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def dashboard?
+    true
+  end
+
+  def home?
+    true
+  end
+
 end

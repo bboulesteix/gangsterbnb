@@ -1,6 +1,7 @@
-class DashboardsController < ApplicationController
-  def dashboard
-    authorize :hideout, :dashboard?
+class HomesController < ApplicationController
+  skip_after_action :verify_authorized
+
+  def home
     @email    = current_user.email
     @bookings = current_user.bookings
     @hideouts = current_user.hideouts

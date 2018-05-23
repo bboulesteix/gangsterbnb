@@ -1,5 +1,7 @@
+@import "../config/fonts";
+
 .navbar-wagon a {
-  font-family: "Work Sans";
+  font-family: $headers-font;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: .40px;

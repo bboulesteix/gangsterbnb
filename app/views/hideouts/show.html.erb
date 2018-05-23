@@ -18,7 +18,9 @@
 
 <div class = container>
   <%= link_to "Home", hideouts_path, class: "btn btn-primary" %>
-  <%= link_to "Edit", edit_hideout_path, class: "btn btn-primary" %>
+    <% if policy(@hideout).update? %>
+      <%= link_to "Edit", edit_hideout_path, class: "btn btn-primary" %>
+      <% end %>
   <hr>
   <h2> Book it now </h2>
   <%= render 'form_booking', hideout: @hideout, booking: @booking %>
