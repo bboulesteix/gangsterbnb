@@ -1,50 +1,126 @@
 <div class="container">
-  <h1> My Dashboard </h1>
-  <%= @email %>
+  <div class= "dashboard-title">
+    <div class= "dashboard-title-element">
+      <h1 class= "blue">
+        My Dashboard
+      </h1>
+    </div>
+    <div class= "dashboard-title-element email">
+        | <%= @email %>
+    </div>
+  </div>
+<div>
+
+<hr>
+
+<div class="container">
+  <h2>Mes bookings</h2>
+  <div>
+  <%= link_to "Book a hideout", hideouts_path, type: "button", class: "btn btn-primary" %>
+  </div>
   <hr>
 
-  <h2> Bookings </h2>
+<!-- Header for my booking -->
+  <div class="message">
+    <div class="message-name header">
+      <h3>
+        Nom
+      </h3>
+    </div>
+    <div class="message-date header">
+      Checkin
+    </div>
+    <div class="message-body header">
+      Description
+    </div>
+    <div class="message-price header">
+      Prix
+    </div>
+    <div class="message-status header">
+      Propriétaire
+    </div>
+  </div>
+
+
+<!-- My booking -->
+
   <% @bookings.each do |booking| %>
+    <% hideout = Hideout.find(booking.hideout_id) %>
+    <% owner = User.find(hideout.user_id) %>
     <div class="message">
       <div class="message-name">
-        <h3>Gab Dehan</h3>
-        <p>10/07/17</p>
+        <h3>
+          <%= hideout.name %>
+        </h3>
       </div>
-      <div class="message-body">
+      <div class="message-date">
         <p><strong>
           <%= booking.checkin %>
         </strong></p>
         <p>
-          <%= booking.checkin %>
-        </p>
-      </div>
-      <div class="message-status">
-        <p class="price">
           <%= booking.checkout %>
         </p>
       </div>
+      <div class="message-body">
+        <%= hideout.description %>
+      </div>
+      <div class="message-price">
+        <%= hideout.price %>
+      </div>
+      <div class="message-status">
+        <%= owner.email %>
+      </div>
     </div>
   <% end %>
 
-  <h2> Hideouts </h2>
-  <% @hideouts.each do |hideout| %>
+  <br>
+  <br>
+
+  <h2>Mes planques</h2>
+  <div>
+    <%= link_to "Add a new hideout", new_hideout_path, type: "button", class: "btn btn-primary" %>
+  </div>
+<hr>
+
+<!-- Header for my hideouts -->
+  <div class="message">
+    <div class="message-name header">
+      <h3>
+        Nom
+      </h3>
+    </div>
+    <div class="message-body header">
+      Description
+    </div>
+    <div class="message-price header">
+      Prix
+    </div>
+    <div class="message-status header">
+      Safety
+    </div>
+  </div>
+
+
+<!-- My hideouts -->
+
+  <% @bookings.each do |booking| %>
+    <% hideout = Hideout.find(booking.hideout_id) %>
+    <% owner = User.find(hideout.user_id) %>
     <div class="message">
       <div class="message-name">
-        <h3>Gab Dehan</h3>
-        <p>10/07/17</p>
+        <h3>
+          <%= hideout.name %>
+        </h3>
       </div>
       <div class="message-body">
-        <p><strong>
-          <%= hideout.name %>
-        </strong></p>
-        <p>
-          <%= hideout.description %>
-        </p>
+        <%= hideout.description %>
       </div>
-      <div class="message-status">
-        <p class="price">
-          <%= hideout.safety %>
-        </p>
+      <div class="message-price">
+        <%= hideout.price %>
+      </div>
+      <div class="message-price">
+        <%= hideout.safety %>
       </div>
     </div>
   <% end %>
+</div>

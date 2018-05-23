@@ -14,6 +14,8 @@ class HideoutsController < ApplicationController
         # infoWindow: { content: render_to_string(partial: "/hideouts/map_box", locals: { flat: flat }) }
       }
     end
+
+    @hideouts_all = Hideout.all
   end
 
   # GET /hideouts/1
