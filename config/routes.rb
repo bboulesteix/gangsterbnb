@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
   resources :bookings, only: [:index]
+
   root to: 'homes#home'
   get 'dashboards', to: 'dashboards#dashboard'
   get 'homes',      to: 'homes#home'
