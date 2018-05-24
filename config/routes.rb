@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :hideouts do
     resources :bookings, only: [:create]
+    resources :reviews, only: [:new, :create]
   end
   resources :bookings, only: [:index, :update]
 
