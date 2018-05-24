@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     @review.hideout = Hideout.find(params[:hideout_id])
     authorize @review
     if @review.save
-      redirect_to hideouts_path, notice: 'Review was successfully created.'
+      redirect_to hideout_path(@review.hideout_id), notice: 'Review was successfully created.'
     else
       render :new
     end
