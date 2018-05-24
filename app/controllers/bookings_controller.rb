@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
     @hideout = Hideout.find(params[:hideout_id])
     @booking.hideout = @hideout
     @booking.user = current_user
+    @booking.status = "pending"
     authorize @booking
     if @booking.save
       redirect_to hideout_path(@hideout), notice: 'Booking was successfully created.'
@@ -21,12 +22,17 @@ class BookingsController < ApplicationController
   end
 
   def update
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.status = params[:status]
+    @booking.save
+    redirect_to dashboards_path, notice: 'Booking was successfully confirmed.'
   end
 
   private
 
   # Only allow a trusted parameter "white list" through
   def booking_params
-    params.require(:booking).permit(:checkin, :checkout)
+    params.require(:booking).permit(:checkin, :checkout, :status)
   end
 end
