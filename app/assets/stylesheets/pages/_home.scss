@@ -1,19 +1,25 @@
 // Specific CSS for your home-page
+
 .main-container {
   display: flex;
   top: 20px;
+  justify-content: space-evenly;
 }
 
 .cards-container {
- min-width: 1000px;
+ min-width: 975px;
  margin-top: 0px;
 }
 
 #map {
-  flex: 0 0 800px;
-  height: 80vh;
-  position: sticky !important; /* !important to override Gmaps inline CSS */
+  flex: 0 0 450px;
+  margin-top: 15px;
+  height: 100vh;
+  position: sticky !important;
   top: 0 !important;
-  margin-left: 20px;
-  box-shadow: 4px -4px #EDEDED;
+  overflow: hidden;
+}
+
+.filters {
+  margin-left: 30px;
 }
