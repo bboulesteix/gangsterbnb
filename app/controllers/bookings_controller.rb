@@ -20,6 +20,9 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+  end
+
   private
 
   # Only allow a trusted parameter "white list" through
