@@ -28,7 +28,11 @@
   width: 130px;
   flex-grow: 0;
 }
-.message-name h3 {
+.message-name h3,
+.message-date h3,
+.message-body h3,
+.message-price h3,
+.message-status h3 {
   font-size: 13px;
   margin-bottom: 0px;
 }
