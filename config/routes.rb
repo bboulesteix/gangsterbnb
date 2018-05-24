@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :hideouts do
     resources :bookings, only: [:create]
   end
-  resources :bookings, only: [:index]
+  resources :bookings, only: [:index, :update]
 
   root to: 'homes#home'
   get 'dashboards', to: 'dashboards#dashboard'

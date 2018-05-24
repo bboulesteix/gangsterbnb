@@ -3,6 +3,7 @@ class HideoutsController < ApplicationController
 
   # GET /hideouts
   def index
+    # Authorize
     @hideouts = policy_scope(Hideout)
     # Display a map on the flats#index route
     @hideouts = Hideout.where.not(latitude: nil, longitude: nil)
@@ -16,8 +17,29 @@ class HideoutsController < ApplicationController
       }
     end
 
-    @hideouts_all = Hideout.all
+    # Display items based on the filters
+    if params[:min_safety].present? && params[:max_price].present?
+      sql_query = "\
+        hideouts.safety < :min_safety \
+        AND hideouts.price < :max_price \
+      "
+      @hideouts_sql = Hideout.where(sql_query, {min_safety: params[:min_safety], max_price: params[:max_price]})
+    elsif params[:min_safety].present?
+      sql_query = "\
+        hideouts.safety < :min_safety \
+      "
+      @hideouts_sql = Hideout.where(sql_query, {min_safety: params[:min_safety], max_price: params[:max_price]})
+    elsif params[:max_price].present?
+      sql_query = "\
+        hideouts.price < :max_price \
+      "
+      @hideouts_sql = Hideout.where(sql_query, {min_safety: params[:min_safety], max_price: params[:max_price]})
+    else
+      @hideouts_sql = Hideout.all
+    end
   end
+
+
 
   # GET /hideouts/1
   def show

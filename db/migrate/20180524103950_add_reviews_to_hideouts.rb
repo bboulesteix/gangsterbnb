@@ -1,0 +1,5 @@
+class AddReviewsToHideouts < ActiveRecord::Migration[5.2]
+  def change
+    add_column :hideouts, :reviews, :integer
+  end
+end
