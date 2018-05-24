@@ -28,15 +28,41 @@
   <% end %>
   <hr>
 
-  <!-- Addind a review and display them if any-->
+  <!-- Addind a review -->
   <%= link_to "Add a review", new_hideout_review_path(@hideout), class: "btn btn-primary text-uppercase" %>
   <% reviews = Review.where(hideout: @hideout.id) %>
 
+  <!-- Calculate average score -->
+  <% if reviews.present? %>
+    <% counter = 0 %>
+    <% weight = 0 %>
+    <% reviews.each do |review| %>
+      <% if review.rating.present? %>
+        <% counter += review.rating  %>
+        <% weight += 1  %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <% average_rating = counter.fdiv(weight).round(2) %>
+
+  <!-- Displaying average rating -->
+
+  <% if average_rating > 4 %>
+    <%= average_rating %> || Planque exceptionnel
+  <% elsif average_rating > 2.5 %>
+    <%= average_rating %> || Planque moyenne
+  <% else %>
+    <%= average_rating %> || Très mauvaise planque
+  <% end %>
+
+
+  <!-- Display reviews them if any-->
   <ul class="list-unstyled">
   <% if reviews.present? %>
     <% reviews.each do |review| %>
       <li>
         <%= review.content %>
+        <%= review.rating %>
       </li>
     <% end %>
   <% else %>
