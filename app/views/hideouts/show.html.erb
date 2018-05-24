@@ -29,7 +29,7 @@
   <hr>
 
   <!-- Addind a review and display them if any-->
-  <%= link_to "Add a review", new_hideout_review_path(@hideout), class: "btn btn-primary text-uppercase" %>
+  <%= link_to "Add a review", new_hideout_review_path(@hideout), class: "btn btn-default text-uppercase" %>
   <% reviews = Review.where(hideout: @hideout.id) %>
 
   <ul class="list-unstyled">
