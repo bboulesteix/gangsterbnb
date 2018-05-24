@@ -1,20 +1,34 @@
-.card {
-  height: 175px;
-  background-size: cover !important;
-  background-position: center;
-  position: relative;
-  margin: 5px;
+// .card {
+//   height: 175px;
+//   background-size: cover !important;
+//   background-position: center;
+//   position: relative;
+//   margin: 5px;
+// }
 
-}
-
 .card {
-  height: 175px;
+  height: 230px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
   color: white;
   position: relative;
+  box-shadow: 4px -4px #EDEDED;
+  margin-bottom: 20px;
+  margin-left: 10px;
 }
+
+.card:hover{
+  height: 230px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+  box-shadow: 4px -4px #757575;
+  opacity: 0.5;
+}
+
 .card-user {
   position: absolute;
   right: 10px;
@@ -22,6 +36,7 @@
   width: 40px;
   border-radius: 50%;
 }
+
 .card-category {
   position: absolute;
   top: 10px;
@@ -29,19 +44,41 @@
   font-size: 15px;
   text-transform: uppercase;
 }
-.card-description {
+
+// .card-description {
+//   position: absolute;
+//   bottom: 10px;
+//   left: 10px;
+//   font-size: 20px;
+// }
+
+// .card-description a {
+//   color: white;
+// }
+
+// .card-description h2 {
+//   font-size: 24px;
+// }
+
+.card-name {
+  font-size : 20px;
   position: absolute;
-  bottom: 30px;
   left: 10px;
-  font-size: 24px;
+  bottom: 10px;
+  a {
+    color: #DBDBDB;
+  }
+  a:hover {
+    text-decoration: none;
+    color: white;
+  }
 }
 
-.card-description a {
-  color: white;
-}
-
-.card-description h2 {
-  font-size: 24px;
+.card-price {
+  font-size : 20px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 
 p {
@@ -60,6 +97,7 @@ p {
   background: black;
   opacity: 0;
 }
+
 .card-link:hover {
-  opacity: 0.1;
+  opacity: 0.2;
 }
