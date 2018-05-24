@@ -7,10 +7,11 @@ class HideoutsController < ApplicationController
     # Display a map on the flats#index route
     @hideouts = Hideout.where.not(latitude: nil, longitude: nil)
 
-    @markers = @hideouts.map do |flat|
+    @markers = @hideouts.map do |hideout|
       {
-        lat: flat.latitude,
-        lng: flat.longitude#,
+        lat: hideout.latitude,
+        lng: hideout.longitude,
+        price: hideout.price#,
         # infoWindow: { content: render_to_string(partial: "/hideouts/map_box", locals: { flat: flat }) }
       }
     end
