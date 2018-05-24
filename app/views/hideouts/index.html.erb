@@ -1,10 +1,10 @@
 <article class="container">
 
-<!-- Filters for search start -->
+  <!-- Filters for search start -->
 
-<hr>
+  <hr>
 
-<%= form_tag hideouts_path, method: :get do %>
+  <%= form_tag hideouts_path, method: :get do %>
     <%= text_field_tag :min_safety,
       params[:min_safety],
       class: "form-control form-inline",
@@ -19,32 +19,46 @@
     %>
     <%= submit_tag 'Search', class: "btn btn-primary"%>
   </div>
-<% end %>
+  <% end %>
 
-<!-- Filters for search end -->
+  <!-- Filters for search end -->
 
-  <h1>Je trouve une planque</h1>
+  <p>Choisis ta planque parmi celles-ci :</p>
+
   <div id="map" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>"></div>
 
-  <div class="row">
-    <% @hideouts_sql.each do |hideout|  %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <% if hideout.photo.blank? %>
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "banner.jpg", height: 300, width: 400, crop: :fill %>')">
-            <div class="card-description">
-            <%= link_to hideout.name, hideout_path(hideout)%>
-          </div>
-            <p><%= hideout.price %></p>
-          </div>
-        <% else %>
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path hideout.photo, height: 300, width: 400, crop: :fill %>')">
-            <div class="card-description">
-            <%= link_to hideout.name, hideout_path(hideout)%>
-            </div>
-            <p><%= hideout.price %></p>
+  <div class="main-container">
+    <div class="cards-container">
+      <div class="row">
+        <% @hideouts.each do |hideout| %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <% if hideout.photo.blank? %>
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "banner.jpg", height: 300, crop: :fill %>')">
+                <div class="card-description">
+                  <div class="card-name">
+                    <%= link_to hideout.name, hideout_path(hideout)%>
+                  </div>
+                  <div class="card-price">
+                    <p><%= hideout.price %> <%= "$" %> </p>
+                  </div>
+                </div>
+              </div>
+            <% else %>
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path hideout.photo, height: 300, crop: :fill %>')">
+                <div class="card-description">
+                  <div class="card-price">
+                    <%= link_to hideout.name, hideout_path(hideout)%>
+                  </div>
+                  <div class="card-price">
+                    <p><%= hideout.price %></p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
           </div>
         <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
+
 </article>

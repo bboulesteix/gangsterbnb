@@ -28,7 +28,7 @@
   <% end %>
   <hr>
 
-  <!-- Addind a reviewc -->
+  <!-- Addind a review -->
   <%= link_to "Add a review", new_hideout_review_path(@hideout), class: "btn btn-primary text-uppercase" %>
   <% reviews = Review.where(hideout: @hideout.id) %>
 
