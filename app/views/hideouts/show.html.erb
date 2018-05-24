@@ -32,25 +32,16 @@
   <%= link_to "Add a review", new_hideout_review_path(@hideout), class: "btn btn-primary text-uppercase" %>
   <% reviews = Review.where(hideout: @hideout.id) %>
 
-  <!-- Calculate average score -->
-  <% if reviews.present? %>
-    <% counter = 0 %>
-    <% weight = 0 %>
-    <% reviews.each do |review| %>
-      <% if review.rating.present? %>
-        <% counter += review.rating  %>
-        <% weight += 1  %>
-      <% end %>
-    <% end %>
-  <% end %>
-  <% average_rating = counter.fdiv(weight).round(2) %>
+  <% average_rating = compute_average(reviews) %>
 
   <!-- Displaying average rating -->
 
-  <% if average_rating > 4 %>
-    <%= average_rating %> || Planque exceptionnel
+  <% if average_rating >= 4 %>
+    <%= average_rating %> || Planque exceptionnelle
   <% elsif average_rating > 2.5 %>
     <%= average_rating %> || Planque moyenne
+  <% elsif average_rating == 0 %>
+    Waiting for reviews
   <% else %>
     <%= average_rating %> || Très mauvaise planque
   <% end %>
