@@ -51,7 +51,11 @@
           <%= booking.user.email %>
         </div>
         <div class="message-status">
+          <% if booking.status == "pending" %>
+          <%= button_to "confirm", booking_path(booking, status: "confirmed"), method: :patch %>
+            <% else %>
           <%= booking.status %>
+          <% end  %>
         </div>
       </div>
     <% end %>
@@ -65,7 +69,7 @@
       <h2>Mes Réservations</h2>
     </div>
     <div class= "dashboard-title-element email">
-      <%= link_to "Book une planque", hideouts_path, type: "button", class: "btn btn-primary" %>
+      <%= link_to "Book une planque", hideouts_path, type: "button", class: "btn btn-default" %>
     </div>
   </div>
 
@@ -132,7 +136,7 @@
       <h2>Mes planques</h2>
     </div>
     <div class= "dashboard-title-element email">
-      <%= link_to "Ajoute une planque", new_hideout_path, type: "button", class: "btn btn-primary" %>
+      <%= link_to "Ajoute une planque", new_hideout_path, type: "button", class: "btn btn-default" %>
     </div>
   </div>
 
