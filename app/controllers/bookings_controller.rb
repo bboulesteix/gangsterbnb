@@ -22,10 +22,11 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking = Booking.find(params[:booking_id])
+    @booking = Booking.find(params[:id])
     authorize @booking
-    @booking.status = @status
-    @hideout
+    @booking.status = params[:status]
+    @booking.save
+    redirect_to dashboards_path, notice: 'Booking was successfully confirmed.'
   end
 
   private
