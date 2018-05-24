@@ -1,7 +1,8 @@
 class Hideout < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  has_many :bookings, :reviews
+  has_many :bookings
+  has_many :reviews
   belongs_to :user
   validates :safety, inclusion: { in: [1, 2, 3, 4, 5] }, numericality: { only_integer: true }
   validates :price, numericality: { greater_than: 0 }
