@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_24_103950) do
+ActiveRecord::Schema.define(version: 2018_05_24_111306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,16 @@ ActiveRecord::Schema.define(version: 2018_05_24_103950) do
     t.index ["user_id"], name: "index_hideouts_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.bigint "hideout_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["hideout_id"], name: "index_reviews_on_hideout_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -68,4 +78,6 @@ ActiveRecord::Schema.define(version: 2018_05_24_103950) do
   add_foreign_key "bookings", "hideouts"
   add_foreign_key "bookings", "users"
   add_foreign_key "hideouts", "users"
+  add_foreign_key "reviews", "hideouts"
+  add_foreign_key "reviews", "users"
 end

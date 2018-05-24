@@ -18,12 +18,36 @@
 
 </article>
 
+
 <div class = container>
   <%= link_to "Home", hideouts_path, class: "btn btn-default text-uppercase" %>
-    <% if policy(@hideout).update? %>
-      <%= link_to "Edit", edit_hideout_path, class: "btn btn-default text-uppercase" %>
-      <% end %>
+
+  <!-- Edit if owner -->
+  <% if policy(@hideout).update? %>
+    <%= link_to "Edit", edit_hideout_path, class: "btn btn-default text-uppercase" %>
+  <% end %>
   <hr>
+
+  <!-- Addind a review and display them if any-->
+  <%= link_to "Add a review", new_hideout_review_path(@hideout), class: "btn btn-primary text-uppercase" %>
+  <% reviews = Review.where(hideout: @hideout.id) %>
+
+  <ul class="list-unstyled">
+  <% if reviews.present? %>
+    <% reviews.each do |review| %>
+      <li>
+        <%= review.content %>
+      </li>
+    <% end %>
+  <% else %>
+    <p> Add the first review </p>
+  <% end %>
+  </ul>
+  <hr>
+
+  <!-- Booking and date picker -->
   <h2> Book it now </h2>
   <%= render 'form_booking', hideout: @hideout, booking: @booking %>
-<div class = container>
+</div>
+
+

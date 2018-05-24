@@ -1,0 +1,9 @@
+<div class = "container">
+  <div class = "form-wrapper" style = "width: 500px; margin: 0 auto;">
+    <h1>Add a new review</h1>
+      <%= simple_form_for [@hideout, @review] do |f| %>
+      <%= f.input :content %>
+      <%= f.submit "Add this new review", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
