@@ -181,7 +181,31 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
   });
   map.setStyle('map_style');
   const markers = JSON.parse(mapElement.dataset.markers);
-  map.addMarkers(markers);
+  markers.forEach((marker) => {
+    const hideoutMarker = new google.maps.Marker({
+      position: {
+        lat: marker.lat,
+        lng: marker.lng
+      },
+      icon: {
+        path: google.maps.SymbolPath.CIRCLE,
+        fillColor: 'white',
+        fillOpacity: 1,
+        scale: 23,
+        strokeColor: 'lightGrey',
+        strokeWeight: 2
+      },
+      label: {
+        color: '#222222',
+        fontFamily: 'Work Sans',
+        fontSize: '12px',
+        fontWeight: '600',
+        text: marker.price.toString().concat(" €")
+      },
+      animation: google.maps.Animation.DROP,
+    });
+    map.addMarker(hideoutMarker);
+  });
   if (markers.length === 0) {
     map.setZoom(2);
   } else if (markers.length === 1) {
@@ -191,5 +215,7 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
     map.fitLatLngBounds(markers);
   }
 }
-
+// markers.forEach((marker) => {
+//   marker.setLabel(marker.price.toString());
+// });
 autocomplete();
