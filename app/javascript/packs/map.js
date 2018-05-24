@@ -191,16 +191,16 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
         path: google.maps.SymbolPath.CIRCLE,
         fillColor: 'white',
         fillOpacity: 1,
-        scale: 25,
+        scale: 23,
         strokeColor: 'lightGrey',
-        strokeWeight: 1
+        strokeWeight: 2
       },
       label: {
         color: '#222222',
         fontFamily: 'Work Sans',
         fontSize: '12px',
         fontWeight: '600',
-        text: marker.price.toString()
+        text: marker.price.toString().concat(" €")
       },
       animation: google.maps.Animation.DROP,
     });
