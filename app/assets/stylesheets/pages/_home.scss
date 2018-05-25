@@ -17,9 +17,13 @@
   height: 100vh;
   position: sticky !important;
   top: 0 !important;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 .filters {
   margin-left: 30px;
+}
+
+.hidden {
+  display: none;
 }
