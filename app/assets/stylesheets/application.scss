@@ -18,13 +18,19 @@
 @import "pages/index";
 
 footer {
-  margin-top: 50px;
+  margin: 0;
+  padding-top: 25px;
   text-align: center;
   vertical-align: middle;
-  height: 10vh;
+  height: 70px;
   background-color: $gray;
+  width: 100%;
   p {
     color: #888888;
     padding-top: 25px;
   }
+}
+
+.container {
+  min-height: calc(100vh - 70px);
 }
