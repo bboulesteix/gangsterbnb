@@ -1,6 +1,6 @@
 <!-- Photo full screen -->
 <div class="image-container">
-  <%= cl_image_tag(@hideout.photo, crop: :fill, gravity: :center) %>
+  <%= cl_image_tag(@hideout.photo, crop: :fill, gravity: :south) %>
 </div>
 
 <div class="container">
@@ -82,7 +82,7 @@
               </li>
             <% end %>
           <% else %>
-            <p> Add the first review </p>
+            <p>Laisser un avis</p>
           <% end %>
           </ul>
           <%= link_to "Laisser un avis", new_hideout_review_path(@hideout), class: "btn btn-default text-uppercase" %>
