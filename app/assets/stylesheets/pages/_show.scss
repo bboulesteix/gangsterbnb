@@ -14,16 +14,6 @@
   margin-left: 100px;
 }
 
-.big-container-element {
-  flex: 1 1 350px;
-  position: absolute;
-}
-
-.booking {
-  top: 23px;
-  right: -200px;
-}
-
 .info-icon {
   width: 45px;
 }
@@ -47,9 +37,13 @@
   padding: 25px;
   background-color: rgb(255, 255, 255);
 }
+
 #hideout-name {
   font-size: 40px;
   padding-top: 25px;
   font-weight: bold;
 }
 
+.right-side-form {
+  margin-top: 35px;
+}

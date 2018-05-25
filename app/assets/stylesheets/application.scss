@@ -16,3 +16,15 @@
 @import "layouts/index";
 @import "components/index";
 @import "pages/index";
+
+footer {
+  margin-top: 50px;
+  text-align: center;
+  vertical-align: middle;
+  height: 10vh;
+  background-color: $gray;
+  p {
+    color: #888888;
+    padding-top: 25px;
+  }
+}
