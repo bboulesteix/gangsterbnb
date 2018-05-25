@@ -20,14 +20,13 @@
     <% end %>
   </form>
   <hr>
-
   <!-- Filters for search end -->
 
   <div class="main-container">
 
     <section class="cards-container">
       <div class="row">
-        <% @hideouts.each do |hideout| %>
+        <% @hideouts_sql.each do |hideout| %>
           <div class="col-xs-12 col-sm-6 col-md-4">
             <% if hideout.blank? %>
 
@@ -70,15 +69,10 @@
                   </div>
                 <% end %>
               </div>
-
             <% end %>
-
           </div>
         <% end %>
-
       </div>
     </section>
-
     <aside id="map" data-markers="<%= @markers.to_json %>"></aside>
-
   </div>
