@@ -7,6 +7,7 @@ class HideoutsController < ApplicationController
     @hideouts = policy_scope(Hideout)
     # Display a map on the flats#index route
     @hideouts = Hideout.where.not(latitude: nil, longitude: nil)
+    @hideouts = Hideout.all
 
     @markers = @hideouts.map do |hideout|
       {

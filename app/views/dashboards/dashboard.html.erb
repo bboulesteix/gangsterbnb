@@ -15,6 +15,39 @@
       <div class="tab-title">
         <%= render 'booking_validation' %>
       </div>
+
+    <% end %>
+  <% end %>
+
+  <br>
+  <br>
+
+<!-- my bookings copy/paste to dashbook -->
+
+  <div class= "dashboard-title">
+    <div class= "dashboard-title-element">
+      <h2>Mes planques</h2>
+    </div>
+    <div class= "dashboard-title-element email">
+      <%= link_to "Ajoute une planque", new_hideout_path, type: "button", class: "btn btn-primary" %>
+    </div>
+  </div>
+
+<hr>
+
+<!-- Header for my hideouts -->
+  <div class="message">
+    <div class="message-name header">
+      <h3>
+        Nom
+      </h3>
+    </div>
+    <div class="message-body header">
+      Description
+    </div>
+    <div class="message-price header">
+      Prix
+
     </div>
     <div role="tabpanel" class="tab-pane" id="booking">
       <div class="tab-title">

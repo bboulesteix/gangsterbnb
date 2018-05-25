@@ -1,6 +1,6 @@
 .message {
   display: flex;
-  align-items: center;
+  align-items: left;
   padding: 20px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
 }
@@ -66,8 +66,8 @@
   width: 140px;
   color: #469AE0;
   padding-left: 10px;
-  padding-right: 10px;
-  text-align: left;
+  padding-right: 50px;
+  text-align: right;
 }
 
 .status.accepted {

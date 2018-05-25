@@ -1,29 +1,29 @@
-  <!-- Filters for search start -->
-  <hr>
-  <form class="form-inline filters">
-    <%= form_tag hideouts_path, method: :get do %>
-      <div class="form-group">
-        <%= text_field_tag :min_safety,
-          params[:min_safety],
-          class: "form-control",
-          placeholder: "Sécurité minimum"
-        %>
-      </div>
-      <div class="form-group">
-        <%= text_field_tag :max_price,
-          params[:max_price],
-          class: "form-control",
-          placeholder: "Prix maximum"
-        %>
-      </div>
-      <%= submit_tag 'Search', class: "btn btn-default"%>
-    <% end %>
-  </form>
-  <hr>
+<!-- Filters for search start -->
+<hr>
+<form class="form-inline filters">
+  <%= form_tag hideouts_path, method: :get do %>
+    <div class="form-group">
+      <%= text_field_tag :min_safety,
+        params[:min_safety],
+        class: "form-control",
+        placeholder: "Sécurité minimum"
+      %>
+    </div>
+    <div class="form-group">
+      <%= text_field_tag :max_price,
+        params[:max_price],
+        class: "form-control",
+        placeholder: "Prix maximum"
+      %>
+    </div>
+    <%= submit_tag 'Search', class: "btn btn-default"%>
+  <% end %>
+</form>
+<hr>
 
-  <!-- Filters for search end -->
+<!-- Filters for search end -->
 
-  <div class="main-container">
+<div class="main-container">
 
     <section class="cards-container">
       <div class="row">
@@ -51,8 +51,9 @@
                   </div>
                 <% end %>
               </div>
+            </div>
 
-            <% else %>
+          <% else %>
 
               <div class="card">
                 <%= link_to cl_image_tag(hideout.photo, height: 190, width: 290, crop: :fill, class: 'card-image'), hideout_path(hideout) %>
@@ -70,15 +71,16 @@
                   </div>
                 <% end %>
               </div>
+            </div>
 
-            <% end %>
+          <% end %>
 
-          </div>
-        <% end %>
+        </div>
+      <% end %>
 
-      </div>
-    </section>
+    </div>
+  </section>
 
     <aside id="map" data-markers="<%= @markers.to_json %>"></aside>
 
-  </div>
+</div>

@@ -5,7 +5,7 @@
     <%= f.input :address %>
     <%= f.input :price %>
     <%= f.input :capacity %>
-    <%= f.input :safety %>
+    <%= f.input :safety, collection: [ 1, 2, 3, 4, 5 ], selected: '1' %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
     <%= f.submit class: 'btn btn-default text-uppercase' %>
