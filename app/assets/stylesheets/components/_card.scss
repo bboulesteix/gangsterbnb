@@ -1,103 +1,53 @@
-// .card {
-//   height: 175px;
-//   background-size: cover !important;
-//   background-position: center;
-//   position: relative;
-//   margin: 5px;
-// }
-
 .card {
-  height: 230px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  position: relative !important;
+  height: 100% !important;
+  margin: 15px 10px;
+  // display: flex;
+  display: inline-block !important;
+  vertical-align: top !important;
+  // justify-content: space-around;
+}
+
+.card-image {
+  width: 290px;
+  height: 190px;
   background-size: cover !important;
   background-position: center;
-  color: white;
-  position: relative;
-  box-shadow: 4px -4px #EDEDED;
-  margin-bottom: 20px;
-  margin-left: 10px;
+  background-repeat: no-repeat !important;
+  border-radius: 3px !important;
+  &:hover{
+    opacity: 0.5;
+  }
 }
 
-.card:hover{
-  height: 230px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-  background-position: center;
-  color: white;
-  position: relative;
-  box-shadow: 4px -4px #757575;
-  opacity: 0.5;
-}
-
-.card-user {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 40px;
-  border-radius: 50%;
-}
-
-.card-category {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 15px;
-  text-transform: uppercase;
-}
-
-// .card-description {
-//   position: absolute;
-//   bottom: 10px;
-//   left: 10px;
-//   font-size: 20px;
-// }
-
-// .card-description a {
-//   color: white;
-// }
-
-// .card-description h2 {
-//   font-size: 24px;
-// }
-
-.card-name {
-  font-size : 20px;
-  position: absolute;
-  left: 10px;
-  bottom: 10px;
+.card-description {
+  margin-top: 10px;
+  h2, p {
+    margin: 0 !important;
+    color: #222222;
+  }
   a {
-    color: #DBDBDB;
+  color: #222222;
   }
   a:hover {
     text-decoration: none;
-    color: white;
+    color: #D22F2B;
+  }
+}
+
+.card-name {
+  h2 {
+  font-size: 14px;
+  color: #222222;
   }
 }
 
 .card-price {
-  font-size : 20px;
-  position: absolute;
-  right: 10px;
-  top: 10px;
+  font-size: 16px;
+  font-weight: 700;
 }
 
-p {
-  left: 70px;
-  font-size: 30px;
-  opacity: 0.7;
-}
-
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  z-index: 2;
-  background: black;
-  opacity: 0;
-}
-
-.card-link:hover {
-  opacity: 0.2;
+.card-safety {
+  font-size: 14px;
+  font-weight: 400;
 }
