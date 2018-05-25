@@ -1,8 +1,9 @@
+
 <!-- Nav tabs -->
 <div class="container">
   <ul class="nav nav-pills">
     <li role="presentation"><a role="tab" href="#validation">Demandes</a></li>
-
+    <li role="presentation"><a role="tab" href="#booking">Mes Bookings</a></li>
     <li role="presentation"><a role="tab" href="#hideouts">Mes Planques</a></li>
   </ul>
 </div>
@@ -10,16 +11,12 @@
 <!-- Tab panes -->
 <div class="container">
   <div class="tab-content text-center">
-    <div role="tabpanel" class="tab-pane active" id="validation">
+
+    <div role="tabpanel" class="active tab-pane" id="booking">
       <div class="tab-title">
-        <%= render 'booking_validation' %>
+        <%= render 'dashboards/booking' %>
       </div>
     </div>
 
-    <div role="tabpanel" class="tab-pane" id="hideouts">
-      <div class="tab-title">
-        <%= render 'hideouts' %>
-      </div>
-    </div>
   </div>
 </div>

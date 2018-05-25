@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   root to: 'homes#home'
   get 'dashboards', to: 'dashboards#dashboard'
   get 'homes',      to: 'homes#home'
+  get 'dashbooks',  to: 'dashbooks#dashbook'
 end

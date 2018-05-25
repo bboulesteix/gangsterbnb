@@ -1,8 +1,10 @@
 .message {
   display: flex;
   align-items: center;
+  text-align: left;
   padding: 20px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
+
 }
 
 .message h3{
@@ -48,6 +50,8 @@
   color: rgba(0,0,0,0.7);
 }
 
+
+
 .message-body strong{
   color: rgba(0,0,0,0.9);
   color: rgba(0,0,0,0.9);
@@ -66,8 +70,8 @@
   width: 140px;
   color: #469AE0;
   padding-left: 10px;
-  padding-right: 10px;
-  text-align: left;
+  padding-right: 50px;
+  text-align: right;
 }
 
 .status.accepted {
