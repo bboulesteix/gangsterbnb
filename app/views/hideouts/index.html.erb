@@ -29,38 +29,46 @@
       <div class="row">
         <% @hideouts.each do |hideout| %>
           <div class="col-xs-12 col-sm-6 col-md-4">
-            <% if hideout.photo.blank? %>
+            <% if hideout.blank? %>
+
+              <div class="hidden"><%= hideout.name %></div>
+
+            <% elsif hideout.photo.blank? %>
 
               <div class="card">
-                <%= image_tag('banner.jpg', height: 190, width: 290, crop: :fill, class: 'card-image') %>
-                <div class="card-description">
-                  <div class="card-name">
-                    <h2><%= link_to hideout.name, hideout_path(hideout)%>
+                <%= link_to image_tag('banner.jpg', height: 190, width: 290, crop: :fill, class: 'card-image'), hideout_path(hideout) %>
+                <%= link_to hideout_path(hideout) do %>
+                  <div class="card-description">
+                    <div class="card-name">
+                      <h2><%= hideout.name %>
+                    </div>
+                    <div class="card-price">
+                      <p><%= hideout.price %> <%= " €" %> </p>
+                    </div>
+                    <div class="card-safety">
+                      <p><%= hideout.safety %> <%= " safety" %></p>
+                    </div>
                   </div>
-                  <div class="card-price">
-                    <p><%= hideout.price %> <%= " €" %> </p>
-                  </div>
-                  <div class="card-safety">
-                    <p><%= hideout.safety %> <%= " safety" %></p>
-                  </div>
-                </div>
+                <% end %>
               </div>
 
             <% else %>
 
               <div class="card">
-                <%= cl_image_tag hideout.photo, height: 190, width: 290, crop: :fill, class: 'card-image' %>
-                <div class="card-description">
-                  <div class="card-name">
-                    <h2><%= link_to hideout.name, hideout_path(hideout)%></h2>
+                <%= link_to cl_image_tag(hideout.photo, height: 190, width: 290, crop: :fill, class: 'card-image'), hideout_path(hideout) %>
+                <%= link_to hideout_path(hideout) do %>
+                  <div class="card-description">
+                    <div class="card-name">
+                      <h2><%= hideout.name %></h2>
+                    </div>
+                    <div class="card-price">
+                      <p><%= hideout.price %> <%= " €" %></p>
+                    </div>
+                    <div class="card-safety">
+                      <p><%= hideout.safety %> <%= " safety" %></p>
+                    </div>
                   </div>
-                  <div class="card-price">
-                    <p><%= hideout.price %> <%= " €" %></p>
-                  </div>
-                  <div class="card-safety">
-                    <p><%= hideout.safety %> <%= " safety" %></p>
-                  </div>
-                </div>
+                <% end %>
               </div>
 
             <% end %>
