@@ -1,6 +1,6 @@
 <!-- Photo full screen -->
 <div class="image-container">
-  <%= cl_image_tag @hideout.photo %>
+  <%= cl_image_tag(@hideout.photo, crop: :fill, gravity: :center) %>
 </div>
 
 <div class="container">
