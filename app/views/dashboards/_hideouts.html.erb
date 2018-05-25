@@ -1,0 +1,48 @@
+<div class= "dashboard-title">
+  <div class= "dashboard-title-element">
+    <h2>Mes planques</h2>
+  </div>
+  <div class= "dashboard-title-element email">
+    <%= link_to "Ajoute une planque", new_hideout_path, type: "button", class: "btn btn-primary" %>
+  </div>
+</div>
+
+<!-- Header  -->
+<div class="message">
+  <div class="message-name header">
+    <h3>
+      Nom
+    </h3>
+  </div>
+  <div class="message-body header">
+    Description
+  </div>
+  <div class="message-price header">
+    Prix
+  </div>
+  <div class="message-status header">
+    Safety
+  </div>
+</div>
+
+<!-- Table -->
+<% current_user.hideouts.each do |hideout| %>
+  <div class="message">
+    <div class="message-name">
+      <h3>
+        <%= hideout.name %>
+      </h3>
+    </div>
+    <div class="message-body">
+      <%= hideout.description %>
+    </div>
+    <div class="message-price">
+      <%= hideout.price %>
+    </div>
+    <div class="message-price">
+      <%= hideout.safety %>
+    </div>
+  </div>
+<% end %>
+
+
