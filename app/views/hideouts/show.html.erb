@@ -1,71 +1,102 @@
-<article class = "container">
-
-    <h1><%= @hideout.name %></h1>
-    <p><%= @hideout.description %></p>
-    <div class="hideout-info">
-      <div class="hideout-photo">
-      <%= cl_image_tag @hideout.photo, height: 300, width: 400, crop: :fill %>
-      </div>
-      <div class="hideout-description">
-        <ul class="list-unstyled">
-          <li>hidden Address: <%= @hideout.address %></li>
-          <li>price in US dollars: <%= @hideout.price %></li>
-          <li>capacity of gangters: <%= @hideout.capacity %></li>
-          <li>level of security: <%= @hideout.safety %></li>
-        </ul>
-      </div>
-    </div>
-
-</article>
-
-
-<div class = container>
-  <%= link_to "Home", hideouts_path, class: "btn btn-default text-uppercase" %>
-
-  <!-- Edit if owner -->
-  <% if policy(@hideout).update? %>
-    <%= link_to "Edit", edit_hideout_path, class: "btn btn-default text-uppercase" %>
-  <% end %>
-  <hr>
-
-  <!-- Addind a review -->
-  <%= link_to "Add a review", new_hideout_review_path(@hideout), class: "btn btn-default text-uppercase" %>
-  
-  <% reviews = Review.where(hideout: @hideout.id) %>
-
-  <% average_rating = compute_average(reviews) %>
-
-  <!-- Displaying average rating -->
-
-  <% if average_rating >= 4 %>
-    <%= average_rating %> || Planque exceptionnelle
-  <% elsif average_rating > 2.5 %>
-    <%= average_rating %> || Planque moyenne
-  <% elsif average_rating == 0 %>
-    Waiting for reviews
-  <% else %>
-    <%= average_rating %> || Très mauvaise planque
-  <% end %>
-
-
-  <!-- Display reviews them if any-->
-  <ul class="list-unstyled">
-  <% if reviews.present? %>
-    <% reviews.each do |review| %>
-      <li>
-        <%= review.content %>
-        <%= review.rating %>
-      </li>
-    <% end %>
-  <% else %>
-    <p> Add the first review </p>
-  <% end %>
-  </ul>
-  <hr>
-
-  <!-- Booking and date picker -->
-  <h2> Book it now </h2>
-  <%= render 'form_booking', hideout: @hideout, booking: @booking %>
+<!-- Photo full screen -->
+<div class="image-container">
+  <%= cl_image_tag @hideout.photo %>
 </div>
 
 
+<div class= "big-container">
+  <div class ="big-container-element">
+
+    <!-- Description -->
+    <div class = "container">
+      <ul class="list-unstyled list-inline">
+        <li>
+          <div id = "hideout-name">
+            <%= @hideout.name %>
+          </div>
+        </li>
+        <li>
+          <div>
+            <% if policy(@hideout).update? %>
+              <%= link_to "Edit", edit_hideout_path, class: "btn btn-info text-uppercase" %>
+            <% end %>
+         </div>
+        </li>
+      </ul>
+    </div>
+
+
+    <!-- Info icons -->
+    <div class="container">
+      <ul class="list-unstyled list-inline">
+        <li>
+          <div info-icon>
+            <i class="fa fas fa-dollar-sign"></i>
+            <%= @hideout.price %> $ per night
+          </div>
+        </li>
+        <li>
+          <div info-icon>
+            <i class="fa fas fa-users"></i>
+            <%= @hideout.capacity %> guests
+          </div>
+        </li>
+        <li>
+          <div info-icon>
+            <i class="fa fas fa-eye-slash"></i>
+            <%= @hideout.safety %> level of safety
+          </div>
+        </li>
+      </ul>
+    </div>
+
+
+    <!-- Addind a review -->
+    <div class="container">
+      <% reviews = Review.where(hideout: @hideout.id) %>
+      <% average_rating = compute_average(reviews) %>
+
+      <!-- Displaying average rating -->
+      <% if average_rating >= 4 %>
+        <%= average_rating %>/5 - Planque exceptionnelle
+      <% elsif average_rating > 2.5 %>
+        <%= average_rating %>/5 - Planque moyenne
+      <% elsif average_rating == 0 %>
+      <% else %>
+        <%= average_rating %>/5 - Très mauvaise planque
+      <% end %>
+      <hr>
+
+    <!-- Description -->
+    <div class="container">
+      <div class="small-container">
+        <%= @hideout.description %>
+      </div>
+    </div>
+    <hr>
+
+      <h3> Reviews </h3>
+      <!-- Display reviews them if any -->
+      <ul class="list-unstyled">
+      <% if reviews.present? %>
+        <% reviews.each do |review| %>
+          <li>
+            <%= review.content %> <%= review.rating %>
+            <i class="fa fas fa-star"></i>
+          </li>
+        <% end %>
+      <% else %>
+        <p> Add the first review </p>
+      <% end %>
+      </ul>
+      <%= link_to "Add a review", new_hideout_review_path(@hideout), class: "btn btn-default text-uppercase" %>
+    </div>
+  </div>
+
+  <div class ="big-container-element booking">
+      <!-- Booking and date picker -->
+    <div>
+      <%= render 'form_booking', hideout: @hideout, booking: @booking %>
+    </div>
+  </div>
+</div>
