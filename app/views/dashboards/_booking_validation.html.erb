@@ -1,0 +1,56 @@
+<div class="container">
+  <div class= "dashboard-title">
+    <div class= "dashboard-title-element">
+      <h2>Demandes de réservations</h2>
+    </div>
+  </div>
+<div>
+
+<!-- Header -->
+<div class="message">
+  <div class="message-name header">
+    <h3>Nom</h3>
+  </div>
+  <div class="message-date header">
+    <h3>Checkin</h3>
+  </div>
+  <div class="message-price header">
+    <h3>Prix</h3>
+  </div>
+  <div class="message-status header">
+    <h3>Locataire</h3>
+  </div>
+  <div class="message-status header">
+    <h3>Status</h3>
+  </div>
+</div>
+
+<!-- Table -->
+<% current_user.hideouts.each do |hideout| %>
+  <% hideout.bookings.each do |booking| %>
+    <div class="message">
+      <div class="message-name">
+        <h3>
+          <%= booking.hideout.name %>
+        </h3>
+      </div>
+      <div class="message-date">
+        <%= booking.checkin %>
+        <%= booking.checkout %>
+      </div>
+      <div class="message-price">
+        <%= booking.hideout.price %>
+      </div>
+      <div class="message-status">
+        <%= booking.user.email %>
+      </div>
+      <div class="message-status">
+        <% if booking.status == "pending" %>
+        <%= button_to "confirm", booking_path(booking, status: "confirmed"), method: :patch %>
+          <% else %>
+        <%= booking.status %>
+        <% end  %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

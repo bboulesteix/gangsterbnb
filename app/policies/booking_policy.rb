@@ -10,7 +10,6 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
-    raise
-    record.user == user
+    record.hideout.user == user
   end
 end

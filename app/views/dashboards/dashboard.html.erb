@@ -1,59 +1,21 @@
+
+<!-- Nav tabs -->
 <div class="container">
-  <div class= "dashboard-title">
-    <div class= "dashboard-title-element">
-      <h2>Demandes de réservations</h2>
-    </div>
-  </div>
-<div>
+  <ul class="nav nav-pills">
+    <li role="presentation"><a role="tab" href="#validation">Demandes</a></li>
+    <li role="presentation"><a role="tab" href="#booking">Mes Bookings</a></li>
+    <li role="presentation"><a role="tab" href="#hideouts">Mes Planques</a></li>
+  </ul>
+</div>
 
-<hr>
-
-<!-- Header for my futur booking -->
-  <div class="message">
-    <div class="message-name header">
-      <h3>Nom</h3>
-    </div>
-    <div class="message-date header">
-      <h3>Checkin</h3>
-    </div>
-    <div class="message-price header">
-      <h3>Prix</h3>
-    </div>
-    <div class="message-status header">
-      <h3>Locataire</h3>
-    </div>
-    <div class="message-status header">
-      <h3>Status</h3>
-    </div>
-  </div>
-
-
-<!-- My futur booking -->
-
-   <% current_user.hideouts.each do |hideout| %>
-    <%# renter = User.find(booking.user_id) %>
-    <%# status = booking.status %>
-    <% hideout.bookings.each do |booking| %>
-      <div class="message">
-        <div class="message-name">
-          <h3>
-            <%= booking.hideout.name %>
-          </h3>
-        </div>
-        <div class="message-date">
-          <%= booking.checkin %>
-          <%= booking.checkout %>
-        </div>
-        <div class="message-price">
-          <%= booking.hideout.price %>
-        </div>
-        <div class="message-status">
-          <%= booking.user.email %>
-        </div>
-        <div class="message-status">
-          <%= booking.status %>
-        </div>
+<!-- Tab panes -->
+<div class="container">
+  <div class="tab-content text-center">
+    <div role="tabpanel" class="tab-pane active" id="validation">
+      <div class="tab-title">
+        <%= render 'booking_validation' %>
       </div>
+
     <% end %>
   <% end %>
 
@@ -85,34 +47,17 @@
     </div>
     <div class="message-price header">
       Prix
+
     </div>
-    <div class="message-status header">
-      Safety
+    <div role="tabpanel" class="tab-pane" id="booking">
+      <div class="tab-title">
+        <%= render 'booking' %>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="hideouts">
+      <div class="tab-title">
+        <%= render 'hideouts' %>
+      </div>
     </div>
   </div>
-
-
-<!-- My hideouts -->
-
-  <%# @bookings.each do |booking| %>
-    <%# hideout = Hideout.find(booking.hideout_id) %>
-    <%# owner = User.find(hideout.user_id) %>
-  <% current_user.hideouts.each do |hideout| %>
-    <div class="message">
-      <div class="message-name">
-        <h3>
-          <%= hideout.name %>
-        </h3>
-      </div>
-      <div class="message-body">
-        <%= hideout.description %>
-      </div>
-      <div class="message-price">
-        <%= hideout.price %>
-      </div>
-      <div class="message-price">
-        <%= hideout.safety %>
-      </div>
-    </div>
-  <% end %>
 </div>

@@ -1,65 +1,85 @@
-<article class="container">
-
   <!-- Filters for search start -->
-
   <hr>
-
-  <%= form_tag hideouts_path, method: :get do %>
-    <%= text_field_tag :min_safety,
-      params[:min_safety],
-      class: "form-control form-inline",
-      placeholder: "Sécurité minimum"
-    %>
-  </div>
-  <div>
-    <%= text_field_tag :max_price,
-      params[:max_price],
-      class: "form-control form-inline",
-      placeholder: "Prix maximum"
-    %>
-    <%= submit_tag 'Search', class: "btn btn-primary"%>
-  </div>
-  <% end %>
+  <form class="form-inline filters">
+    <%= form_tag hideouts_path, method: :get do %>
+      <div class="form-group">
+        <%= text_field_tag :min_safety,
+          params[:min_safety],
+          class: "form-control",
+          placeholder: "Sécurité minimum"
+        %>
+      </div>
+      <div class="form-group">
+        <%= text_field_tag :max_price,
+          params[:max_price],
+          class: "form-control",
+          placeholder: "Prix maximum"
+        %>
+      </div>
+      <%= submit_tag 'Search', class: "btn btn-default"%>
+    <% end %>
+  </form>
+  <hr>
 
   <!-- Filters for search end -->
 
+
   <p>Choisis ta planque parmi celles-ci :</p>
 
-
-
   <div class="main-container">
-    <div class="cards-container">
+
+    <section class="cards-container">
       <div class="row">
         <% @hideouts.each do |hideout| %>
           <div class="col-xs-12 col-sm-6 col-md-4">
             <% if hideout.photo.blank? %>
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "banner.jpg", height: 300, crop: :fill %>')">
+
+              <div class="card">
+                <%= image_tag('banner.jpg', height: 190, width: 290, crop: :fill, class: 'card-image') %>
                 <div class="card-description">
                   <div class="card-name">
-                    <%= link_to hideout.name, hideout_path(hideout)%>
+                    <h2><%= link_to hideout.name, hideout_path(hideout)%>
                   </div>
                   <div class="card-price">
-                    <p><%= hideout.price %> <%= "$" %> </p>
+                    <p><%= hideout.price %> <%= " €" %> </p>
+                  </div>
+                  <div class="card-safety">
+                    <p><%= hideout.safety %> <%= " safety" %></p>
                   </div>
                 </div>
               </div>
+
             <% else %>
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path hideout.photo, height: 300, crop: :fill %>')">
+
+              <div class="card">
+                <%= cl_image_tag hideout.photo, height: 190, width: 290, crop: :fill, class: 'card-image' %>
                 <div class="card-description">
-                  <div class="card-price">
-                    <%= link_to hideout.name, hideout_path(hideout)%>
+                  <div class="card-name">
+                    <h2><%= link_to hideout.name, hideout_path(hideout)%></h2>
                   </div>
                   <div class="card-price">
-                    <p><%= hideout.price %></p>
+                    <p><%= hideout.price %> <%= " €" %></p>
+                  </div>
+                  <div class="card-safety">
+                    <p><%= hideout.safety %> <%= " safety" %></p>
                   </div>
                 </div>
               </div>
+
             <% end %>
+
           </div>
         <% end %>
+
       </div>
+
     </div>
     <div id="map" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>"></div>
   </div>
 
-</article>
+    </section>
+
+    <aside id="map" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>"></aside>
+
+
+  </div>
