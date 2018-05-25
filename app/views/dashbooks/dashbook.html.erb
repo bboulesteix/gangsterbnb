@@ -1,0 +1,64 @@
+  <div class= "dashboard-title">
+    <div class= "dashboard-title-element">
+      <h2>Mes Réservations</h2>
+    </div>
+    <div class= "dashboard-title-element email">
+      <%= link_to "Book une planque", hideouts_path, type: "button", class: "btn btn-primary" %>
+    </div>
+  </div>
+
+
+<hr>
+
+<!-- Header for my booking -->
+  <div class="message">
+    <div class="message-name header">
+      <h3>Nom</h3>
+    </div>
+    <div class="message-date header">
+      <h3>Checkin</h3>
+    </div>
+    <div class="message-body header">
+      <h3>Description</h3>
+    </div>
+    <div class="message-price header">
+      <h3>Prix</h3>
+    </div>
+    <div class="message-status header">
+      <h3>Propriétaire</h3>
+    </div>
+    <div class="message-status header">
+      <h3>Status</h3>
+    </div>
+  </div>
+
+
+<!-- My booking -->
+
+  <% current_user.bookings.each do |booking| %>
+    <%# hideout = Hideout.find(booking.hideout_id) %>
+    <%# owner = User.find(hideout.user_id) %>
+    <div class="message">
+      <div class="message-name">
+        <h3>
+          <%= booking.hideout.name %>
+        </h3>
+      </div>
+      <div class="message-date">
+        <%= booking.checkin %>
+        <%= booking.checkout %>
+      </div>
+      <div class="message-body">
+        <%= booking.hideout.description %>
+      </div>
+      <div class="message-price">
+        <%= booking.hideout.price %>
+      </div>
+      <div class="message-status">
+        <%= booking.hideout.user.email %>
+      </div>
+      <div class="message-status">
+        <%= booking.status %>
+      </div>
+    </div>
+  <% end %>
