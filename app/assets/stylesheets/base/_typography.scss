@@ -37,7 +37,8 @@ a {
   font-size: 14px !important;
 }
 
-.btn-default {
+.btn-default,
+.btn-danger {
   font-family: $headers-font;
   text-transform: uppercase;
   font-size: 12px;
