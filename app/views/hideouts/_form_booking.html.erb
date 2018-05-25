@@ -1,9 +1,7 @@
-<div class = "container">
-  <div class = "form-wrapper" style = "width: 500px; margin: 0 auto;">
-      <%= simple_form_for [@hideout, @user, @booking] do |f| %>
-      <%= f.input :checkin, as: :string, input_html: { class: "datepicker"} %>
-      <%= f.input :checkout, as: :string, input_html: { class: "datepicker"} %>
-      <%= f.submit "Book this hideout", class: "btn btn-default" %>
-    <% end %>
-  </div>
+<div class = "form-wrapper-custom">
+  <%= simple_form_for [@hideout, @user, @booking] do |f| %>
+    <%= f.input :checkin, as: :string, input_html: { class: "datepicker"} %>
+    <%= f.input :checkout, as: :string, input_html: { class: "datepicker"} %>
+    <%= f.submit "Book this hideout", class: "btn btn-primary btn-full-width" %>
+  <% end %>
 </div>

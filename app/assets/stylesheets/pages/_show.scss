@@ -7,3 +7,43 @@
 .hideout-description {
   margin-left: 20px;
 }
+
+.big-container {
+  display: flex;
+  position: relative;
+  margin-left: 100px;
+}
+
+.info-icon {
+  width: 45px;
+}
+
+.small-container {
+  width: 250px;
+}
+
+.btn-full-width {
+  width: 100%;
+  margin-top: 10px;
+  height: 48px;
+  font-weight: bold;
+}
+
+.form-wrapper-custom{
+  width: 450px;
+  margin: 0 auto;
+  border: 1px solid rgb(219, 219, 219);
+  border-radius: 3px;
+  padding: 25px;
+  background-color: rgb(255, 255, 255);
+}
+
+#hideout-name {
+  font-size: 40px;
+  padding-top: 25px;
+  font-weight: bold;
+}
+
+.right-side-form {
+  margin-top: 35px;
+}
