@@ -6,7 +6,7 @@
     "bootstrap": ">=4.1.2",
     "flatpickr": "^4.5.0",
     "gmaps": "^0.4.24",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.0",
     "normalize.css": "^8.0.0"
   },
   "devDependencies": {
